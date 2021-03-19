@@ -9,7 +9,29 @@ package com.geeksforgeeks.arrays;
  */
 public class SubArrayWithGivenSum {
 
-    public static void main(String[] args) {
+    private static int subArraySum(int[] arr, int sum) {
+        int curr_sum = arr[0];
+        int i = 0,start = 0;
 
+        for (i = 1 ; i <= arr.length; i++) {
+
+            while (curr_sum > sum && start < i - 1) {
+                curr_sum = curr_sum - arr[start];
+                start++;
+            }
+
+            if (curr_sum < sum) {
+                curr_sum = curr_sum + arr[i];
+            } else if (curr_sum == sum) {
+                int p = i - 1;
+                System.out.println("Subarray sum found at indexes : " + start + " " + p);
+                break;
+            }
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        subArraySum(new int[] {1, 4, 20, 3, 10, 5}, 33);
     }
 }
