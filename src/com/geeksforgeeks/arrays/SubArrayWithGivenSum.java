@@ -9,6 +9,7 @@ package com.geeksforgeeks.arrays;
  */
 public class SubArrayWithGivenSum {
 
+    // O(n)
     private static int subArraySum(int[] arr, int sum) {
         int curr_sum = arr[0];
         int i = 0,start = 0;
@@ -24,7 +25,7 @@ public class SubArrayWithGivenSum {
                 curr_sum = curr_sum + arr[i];
             } else if (curr_sum == sum) {
                 int p = i - 1;
-                System.out.println("Subarray sum found at indexes : " + start + " " + p);
+                System.out.println("Subarray sum found at indexes : " + start + " and " + p);
                 break;
             }
         }
