@@ -23,7 +23,7 @@ public class RotateArray {
         while (k < count) {
             output[k++] = arr[i--];
         }
-        System.out.println("Rotated array is :" + Arrays.toString(output));
+        System.out.println("Rotated array is : " + Arrays.toString(output));
     }
 
     public static void main(String[] args) {
