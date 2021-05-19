@@ -34,7 +34,7 @@ public class LRUCache {
 
     private void display () {
         for (int i : cache) {
-            System.out.println(i + " ");
+            System.out.print(i + " ");
         }
     }
 
