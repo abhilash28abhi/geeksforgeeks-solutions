@@ -7,6 +7,7 @@ public class BinarySearchElementIndex {
                 binarySearchIndex(new int[]{1, 2, 4, 5, 6}, 3)); //output should be 4
     }
 
+    //O(log n)
     private static int binarySearchIndex(int[] arr, int element) {
         int first = 0;
         int last = arr.length;
