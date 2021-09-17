@@ -6,6 +6,8 @@ public class RainWaterTrapping {
         rainWaterTrapping(new int[]{3, 1, 2, 4, 0, 1, 3, 2});
     }
 
+    //TC O(n)
+    //SC O(n)
     private static void rainWaterTrapping(int[] input) {
         //will have the max height of left buildings wrt to current
         int[] maxLeftHeight = new int[input.length];
