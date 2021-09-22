@@ -1,5 +1,8 @@
 package com.geeksforgeeks.arrays;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class RainWaterTrapping {
 
     public static void main(String[] args) {
@@ -20,11 +23,15 @@ public class RainWaterTrapping {
         for (int i = 1; i < input.length; i++) {
             maxLeftHeight[i] = Math.max(input[i], maxLeftHeight[i - 1]);
         }
+        //System.out.println("maxLeftHeight" + Arrays.toString(maxLeftHeight));
+        //maxLeftHeight[3, 3, 3, 4, 4, 4, 4, 4]
 
         maxRightHeight[input.length - 1] = input[input.length - 1];
         for (int i = input.length - 2; i >= 0; i--) {
             maxRightHeight[i] = Math.max(input[i], maxRightHeight[i + 1]);
         }
+        //System.out.println("maxRightHeight" + Arrays.toString(maxRightHeight));
+        //maxRightHeight[4, 4, 4, 4, 3, 3, 3, 2]
 
         int totalWaterTrapped = 0;
         for (int i = 0; i < input.length; i++) {
