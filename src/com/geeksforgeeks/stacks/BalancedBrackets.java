@@ -14,7 +14,7 @@ public class BalancedBrackets {
 
     private static boolean isBalancedString(String input) {
         char[] charArr = input.toCharArray();
-        //()
+
         Stack<Character> stack = new Stack<>();
         for (char ch : charArr) {
             if (isOpeningBracket(ch)) {
