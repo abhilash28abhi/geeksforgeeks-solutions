@@ -25,6 +25,7 @@ public class MinimumEditDistance {
                 editMinimumWithDp(m, n, str1, str2, dp));
     }
 
+    //TC is O(3^M)
     private static int editMinimumWithoutDp(int m, int n, String str1, String str2) {
         //if either of the string is empty minimum operation would be the length of the other string
         if (m == 0)
@@ -42,6 +43,7 @@ public class MinimumEditDistance {
         }
     }
 
+    //TC is O(M * N)
     private static int editMinimumWithDp(int m, int n, String str1, String str2, int[][] dp) {
         if (m == 0 || n == 0) {
             return 0;
