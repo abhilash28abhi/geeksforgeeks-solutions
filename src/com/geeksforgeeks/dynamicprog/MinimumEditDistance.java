@@ -7,6 +7,7 @@ package com.geeksforgeeks.dynamicprog;
  * Remove
  * Replace
  * Eg: str1 = DOG, str2 = DIG, output is 1
+ * Eg2: str1 = ABCAB, str2 = EACB output is 3
  */
 public class MinimumEditDistance {
 
@@ -17,17 +18,20 @@ public class MinimumEditDistance {
         int n = str2.length();
         int[][] dp = new int[m+1][n+1];
         for (int i = 0; i<= m; i++)dp[i][0] = i;
-        for (int j = 0; j<= m; j++)dp[0][j] = j;
-        System.out.println("Minimum operations required for conversion is : " +
+        for (int j = 0; j<= n; j++)dp[0][j] = j;
+        System.out.println("Minimum operations required for conversion without dp is : " +
                 editMinimumWithoutDp(m, n, str1, str2));
         System.out.println("Minimum operations required for conversion with Dp is : " +
                 editMinimumWithDp(m, n, str1, str2, dp));
     }
 
     private static int editMinimumWithoutDp(int m, int n, String str1, String str2) {
-        if (m == 0 || n == 0) {
-            return 0;
-        }
+        //if either of the string is empty minimum operation would be the length of the other string
+        if (m == 0)
+            return n;
+        if (n == 0)
+            return m;
+
         if (str1.charAt(m-1) == str2.charAt(n-1)) {
             //if the end char are same ignore it
             return editMinimumWithoutDp(m-1, n-1, str1, str2);
