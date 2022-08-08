@@ -15,6 +15,8 @@ public class PalindromePartitioning {
         System.out.println("Minimum cuts req for palindrome partitioning is : " + palindromePartition(input, dp));
     }
 
+    //Time Complexity: O(n3)
+    //SC: O(n2)
     private static int palindromePartition(String input, int[][] dp) {
         int n = input.length();
         //start filling the array diagonally, initial all elements in array will have 0
