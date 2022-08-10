@@ -1,4 +1,4 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 
 //you have a sorted array of infinite numbers, how would you search an element in the array ie we can't use length on array

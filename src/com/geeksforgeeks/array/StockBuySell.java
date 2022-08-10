@@ -1,4 +1,4 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

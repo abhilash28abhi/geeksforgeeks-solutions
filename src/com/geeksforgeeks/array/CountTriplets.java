@@ -1,4 +1,4 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 /**
  * Given an array of distinct positive integers arr[] of length N, the task is to count all the triplets such that

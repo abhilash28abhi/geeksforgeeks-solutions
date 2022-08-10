@@ -1,4 +1,4 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 /**
  * An element is leader if it is greater than all the elements to its right side. And the rightmost element is always a leader.

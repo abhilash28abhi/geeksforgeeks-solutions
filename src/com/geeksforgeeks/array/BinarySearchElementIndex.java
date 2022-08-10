@@ -1,4 +1,4 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 public class BinarySearchElementIndex {
 

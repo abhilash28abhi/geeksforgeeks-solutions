@@ -1,4 +1,4 @@
-package com.geeksforgeeks.strings;
+package com.geeksforgeeks.string;
 
 import java.util.HashSet;
 import java.util.Set;

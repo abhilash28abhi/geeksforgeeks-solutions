@@ -1,7 +1,4 @@
-package com.geeksforgeeks.arrays;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
+package com.geeksforgeeks.array;
 
 public class RainWaterTrapping {
 

@@ -1,7 +1,6 @@
-package com.geeksforgeeks.arrays;
+package com.geeksforgeeks.array;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SumOfArrayElements {
 
