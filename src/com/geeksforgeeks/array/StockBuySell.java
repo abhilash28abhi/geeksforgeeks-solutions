@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class StockBuySell {
 
     public static void main(String[] args) {
-        bruteForceApproach(new int[]{3, 5, 1, 7, 4, 9 ,3});
+        bruteForceApproach(new int[]{3, 5, 1, 7, 4, 9 ,3});//output will be max profit is 8 between 2 and 5
         auxillarySpaceApproach(new int[]{3, 5, 1, 7, 4, 9 ,3});
         efficientApproach(new int[]{3, 5, 1, 7, 4, 9 ,3});
     }
@@ -79,19 +79,16 @@ public class StockBuySell {
         for (int i = 0; i < input.length; i++) {
             if (input[i] < minSoFar) {
                 minSoFar = input[i];
+                startIndex = i;
             }
 
             profit = input[i] - minSoFar;
             if (profit > maxProfit) {
                 maxProfit = profit;
-                startIndex = Arrays.stream(input)
-                        .boxed()
-                        .collect(Collectors.toList())
-                        .indexOf(minSoFar);
                 endIndex = i;
             }
         }
 
-        System.out.println("Max profit can be earned by buying on " + startIndex + " and selling on " + endIndex);
+        System.out.println("Max profit of " + maxProfit + " can be earned by buying on " + startIndex + " and selling on " + endIndex);
     }
 }
