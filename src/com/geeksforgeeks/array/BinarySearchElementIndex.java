@@ -4,7 +4,7 @@ public class BinarySearchElementIndex {
 
     public static void main(String[] args) {
         System.out.println("Element found at index: " +
-                binarySearchIndex(new int[]{1, 2, 4, 5, 6}, 3)); //output should be 4
+                binarySearchIndex(new int[]{1, 2, 4, 5, 6}, 3)); //output should be 2
     }
 
     //O(log n)
