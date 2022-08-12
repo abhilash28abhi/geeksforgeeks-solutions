@@ -15,6 +15,7 @@ public class StockBuySellKTimes {
     private static int maxStockProfit(int[] input) {
         int maxProfit = 0;
 
+        //idea is to keep selling the stock once price is more than the sell price
         for (int i = 1; i < input.length; i++) {
             if (input[i] > input[i - 1]) {
                 maxProfit = maxProfit + input[i] - input[i-1];
