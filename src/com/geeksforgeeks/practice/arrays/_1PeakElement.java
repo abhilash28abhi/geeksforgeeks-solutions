@@ -15,6 +15,8 @@ public class _1PeakElement {
         System.out.println("Index of the peak element is : " + peakElementIndex(arr, n));
     }
 
+    //TC is O(n)
+    //SC is O(1)
     private static int peakElementIndex(int[] arr, int n) {
         if (n == 1 || arr[0] > arr[1]) return 0;
         else if (arr[n -1] > arr[n-2]) return n-1;
