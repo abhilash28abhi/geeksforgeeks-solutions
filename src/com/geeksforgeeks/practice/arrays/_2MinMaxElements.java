@@ -21,18 +21,13 @@ public class _2MinMaxElements {
         int maxElement = Integer.MIN_VALUE;
         int minElement = Integer.MAX_VALUE;
 
-        for (int i = 0 ; i < n - 1 ; i++) {
-            if (arr[i] > arr[i+1] && arr[i] > maxElement) {
+        for (int i = 0 ; i < n ; i++) {
+            if (arr[i] > maxElement) {
                 maxElement = arr[i];
             }
-            if (arr[i] < arr[i+1] && arr[i] < minElement) {
+            if (arr[i] < minElement) {
                 minElement = arr[i];
             }
-        }
-        if (arr[n-1] > maxElement) {
-            maxElement = arr[n-1];
-        } else if (arr[n-1] < minElement) {
-            minElement = arr[n-1];
         }
         Pair pair = new Pair(maxElement, minElement);
         return pair;
