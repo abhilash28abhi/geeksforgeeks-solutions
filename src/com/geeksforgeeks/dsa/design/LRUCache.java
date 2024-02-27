@@ -1,53 +1,76 @@
 package com.geeksforgeeks.dsa.design;
 
-import java.util.Deque;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Set;
+import java.util.Map;
 
 public class LRUCache {
 
-    private Deque<Integer> cache;
-    private Set<Integer> addressBook;
-    private int CACHE_SIZE;
+    private Map<String, String> cache;
+    private LinkedList<String> valueStore;
 
-    LRUCache(int cacheSize) {
-        this.cache = new LinkedList<>();
-        this.addressBook = new HashSet<>();
-        this.CACHE_SIZE = cacheSize;
+    private int capacity;
+
+    LRUCache(int size) {
+        this.capacity = size;
+        this.cache = new HashMap<>();
+        this.valueStore = new LinkedList<>();
     }
 
-    private void refer (int value) {
-        if (!addressBook.contains(value)) {
-            if (CACHE_SIZE == cache.size()) {
-                //if the cache is full remove the last node from linkedlist and returns the value of tail
-                int lastNodeValue = cache.removeLast();
-                addressBook.remove(lastNodeValue);
+
+    public void put (String key, String value) {
+        if (valueStore.size() <= capacity) {
+            if (valueStore.size() == capacity) {
+                //if cache value store is full remove the least recently used element viz from the end of list
+                //we use linked list as it can remove element in O(1) efficiently
+                valueStore.removeLast();
+                cache.remove(key);
             }
-        } else {
-            //address book contains this value so remove it from the end and a new node at start
-            cache.remove(value);
+            cache.put(key, value);
+            valueStore.addFirst(key);
         }
-        cache.push(value);
-        addressBook.add(value);
     }
 
-    private void display () {
-        for (int i : cache) {
-            System.out.print(i + " ");
+    public String get (String key) {
+        String value = cache.get(key);
+        if (value != null) {
+            //if the data is present then we need to update the access order
+            //move the current key to top of the access list
+            //to move to top of the list first remove it and re-add it
+            valueStore.remove(key);
+            valueStore.addFirst(key);
+        } else {
+            value = null;
+        }
+        return value;
+    }
+
+    public void display() {
+        for (int i = 0; i < valueStore.size(); i++) {
+            String key = valueStore.get(i);
+            System.out.println(key + " => " + cache.get(key));
         }
     }
 
     public static void main(String[] args) {
-        LRUCache cache = new LRUCache(4);
-        cache.refer(1);
-        cache.refer(2);
-        cache.refer(3);
-        cache.refer(1);//2 3 1
-        cache.refer(3);//2 1 3
-        cache.refer(2);//1 3 2
-        cache.refer(4);//1 3 2 4
-        cache.refer(5);//3 2 4 5
-        cache.display();
+        LRUCache lruCache = new LRUCache(3);
+        lruCache.put("a", "apple");
+        lruCache.put("b", "bat");
+        lruCache.put("c", "cat");
+        lruCache.display();
+        System.out.println("------------");
+        lruCache.put("d", "dog");
+        lruCache.get("c"); // accessing c, it will be moved to top
+        lruCache.get("b");// accessing 2, it will be moved to top
+        lruCache.display();
+        System.out.println("------------");
+        lruCache.put("e", "egg");
+        lruCache.get("b");
+        lruCache.get("c");
+        lruCache.display();
+        //output should be
+//        c => cat
+//        b => bat
+//        e => egg
     }
 }
