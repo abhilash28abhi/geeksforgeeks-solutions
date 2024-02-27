@@ -61,7 +61,7 @@ public class LRUCache {
         System.out.println("------------");
         lruCache.put("d", "dog");
         lruCache.get("c"); // accessing c, it will be moved to top
-        lruCache.get("b");// accessing 2, it will be moved to top
+        lruCache.get("b");// accessing b, it will be moved to top
         lruCache.display();
         System.out.println("------------");
         lruCache.put("e", "egg");
