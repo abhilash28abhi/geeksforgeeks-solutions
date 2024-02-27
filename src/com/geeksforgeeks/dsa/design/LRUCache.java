@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ * We are using a map to store the key-value pair in the cache. To implement the LRU we use a doubly linkedlist
+ * where the keys are being stored and the least recently used key which would be at the end of the list will be removed
+ * from it and the cache.
+ */
 public class LRUCache {
 
     private Map<String, String> cache;
